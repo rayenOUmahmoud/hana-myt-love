@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Our Memories ❤️</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial;
+background:linear-gradient(270deg,#ff9aa2,#ffd1dc,#ffb7c5);
+background-size:600% 600%;
+animation:bg 15s ease infinite;
+text-align:center;
+color:white;
+overflow-x:hidden;
+}
+
+@keyframes bg{
+0%{background-position:0% 50%}
+50%{background-position:100% 50%}
+100%{background-position:0% 50%}
+}
+
+h1{margin-top:40px;}
+
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(120px,1fr));
+gap:15px;
+padding:30px;
+}
+
+.photo{
+height:140px;
+background:rgba(255,255,255,.4);
+border-radius:15px;
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+.reveal{
+background:white;
+color:#ff3d6b;
+margin:40px auto;
+width:80%;
+max-width:400px;
+padding:25px;
+border-radius:20px;
+}
+
+.heart{
+position:fixed;
+bottom:-20px;
+font-size:20px;
+animation:fly 6s linear infinite;
+}
+
+@keyframes fly{
+0%{transform:translateY(0);opacity:1}
+100%{transform:translateY(-100vh);opacity:0}
+}
+
+</style>
+</head>
+
+<body>
+
+<h1>Our Memories 💕</h1>
+
+<p>Put our photos here ↓</p>
+
+<div class="gallery">
+<div class="">IMG 1</div>
+<div class="photo">IMG 2</div>
+<div class="photo">IMG 3</div>
+<div class="photo">IMG 4</div>
+<div class="photo">IMG 5</div>
+<div class="photo">IMG 6</div>
+</div>
+
+<div class="reveal" id="msg"></div>
+
+<script>
+
+let message=`I don’t love you because I need you.
+I need you because I love you.
+
+You’re not my option.
+You’re my choice.
+
+Even with distance.
+Even with problems.
+
+I choose you.
+Every day.`;
+
+let i=0;
+
+function reveal(){
+if(i<message.length){
+document.getElementById("msg").innerHTML+=message.charAt(i);
+i++;
+setTimeout(reveal,40);
+}
+}
+reveal();
+
+setInterval(()=>{
+let h=document.createElement("div");
+h.className="heart";
+h.innerHTML="❤️";
+h.style.left=Math.random()*100+"%";
+document.body.appendChild(h);
+setTimeout(()=>h.remove(),6000);
+},400);
+
+</script>
+
+</body>
+</html>
